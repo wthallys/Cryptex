@@ -39,7 +39,7 @@ public class FileProcessor {
             writeKeyFile(keyPath, result.rawKey());
             Arrays.fill(result.rawKey(), (byte) 0);
             System.out.println("Encrypted -> " + outputPath.getFileName());
-            System.out.println("Key file -> " + keyPath + " (keep this to decrypt later");
+            System.out.println("Key file -> " + keyPath + " (keep this to decrypt later)");
         } else {
             System.out.println("Encrypted -> " + outputPath.getFileName());
         }
