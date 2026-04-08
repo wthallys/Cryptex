@@ -152,8 +152,13 @@ public class FileProcessor {
 
     private Path resolveKeyPath(Path inputPath) {
         String home = System.getProperty("user.home");
-        String keyName = inputPath.toAbsolutePath().toString()
-                .replaceAll("[^a-zA-Z0-9]", "_") + KEY_EXTENSION;
+        String filePath = inputPath.toAbsolutePath().toString();
+
+        if (filePath.endsWith(CPTX_EXTENSION)) {
+            filePath = filePath.substring(0, filePath.length() - CPTX_EXTENSION.length());
+        }
+
+        String keyName = filePath.replaceAll("[^a-zA-Z0-9]", "_") + KEY_EXTENSION;
         return Path.of(home, ".cryptex", "keys", keyName);
     }
 }
